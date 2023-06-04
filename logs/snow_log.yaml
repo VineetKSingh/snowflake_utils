@@ -1,0 +1,26 @@
+version: 1
+formatters:
+  consoleFormatter:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+  fileFormatter:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+handlers:
+  consoleHandler:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: consoleFormatter
+    stream: ext://sys.stdout
+  fileHandler:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: fileFormatter
+    filename: /var/logs/snow.log
+loggers:
+  root:
+    level: DEBUG
+    handlers: [consoleHandler, fileHandler]
+root:
+  level: DEBUG
+  handlers: [consoleHandler, fileHandler]
